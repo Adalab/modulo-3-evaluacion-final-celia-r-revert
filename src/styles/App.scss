@@ -1,0 +1,61 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.spotlight__maintitle {
+  color: green;
+  font-size: 20pt;
+  margin: 50px;
+}
+
+.spotlight__form {
+  display: flex;
+  justify-content: center;
+}
+
+.spotlight__movie {
+  margin: 5px;
+  color: green;
+}
+
+.spotlight__input {
+  margin-right: 1.2rem;
+}
+
+.spotlight__year {
+  margin-right: 10px;
+  color: green;
+}
+
+.spotlight__select {
+  color: green;
+}
+
+.movie__list {
+  display: grid;
+  grid-template-columns: 100px 100px; 
+  gap: 100px; // Espacio entre elementos
+  place-items: center;
+  list-style: none;
+  text-align: center;
+}
+.movie__item {
+  text-align: center;
+  background-color: green;
+  width: 180px;
+  color: white;
+  border-radius: 5%;
+}
+.movie__picture {
+  width: 100px;
+  margin-top: 20px;
+}
+
+.movie__name {
+  font-size: 15pt; 
+  font-weight: bold;
+  color: rgb(160, 154, 154);
+}
