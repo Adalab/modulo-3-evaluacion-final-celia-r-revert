@@ -1,0 +1,148 @@
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(211, 204, 64);
+}
+
+.spotlight__maintitle {
+  color: green;
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.header__image {
+  width: 440px;
+}
+
+.spotlight__form {
+  display: flex;
+  justify-content: center;
+}
+
+.spotlight__movie {
+  margin: 5px;
+  color: green;
+}
+
+.spotlight__input {
+  margin-right: 1.2rem;
+}
+
+.spotlight__year {
+  margin-right: 10px;
+  color: green;
+}
+
+.spotlight__select {
+  color: green;
+}
+.movie__detail {
+  background-color: green;
+  color: white;
+  width: 400px;
+  position: relative;
+  left: 500px;
+  border-radius: 10%;
+  top: 10px;
+
+}
+.movie__name {
+  font-size: 25pt;
+  color: white;
+
+}
+
+.movie__list {
+  display: grid;
+  grid-template-columns: 100px 100px; 
+  gap: 100px; // Espacio entre elementos
+  place-items: center;
+  list-style: none;
+  text-align: center;
+  margin-left: 80px;
+}
+.movie__item {
+  text-align: center;
+  background-color: green;
+  width: 180px;
+  color: white;
+  border-radius: 5%;
+}
+.movie__picture {
+  width: 100px;
+  margin-top: 20px;
+}
+
+.movie__name {
+  font-size: 15pt; 
+  font-weight: bold;
+  color: white;
+}
+
+//media queries
+
+@media (max-width: 768px) {
+  .spotlight__maintitle {
+    color: green;
+    font-size: 35pt;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  spotlight__header {
+    height: 600px;
+  }
+
+  .header__image {
+    width: 800px;
+  }
+
+  .movie__list {
+    display: grid;
+    grid-template-columns: 100px 100px 100px; 
+    gap: 150px; // Espacio entre elementos
+    place-items: center;
+    list-style: none;
+    text-align: center;
+    margin-left: 60px;
+  }
+
+  .spotlight__form {
+    display: flex;
+    justify-content: center;
+    margin: 30px
+  }
+}
+
+@media (max-width: 1440px) {
+  .spotlight__maintitle {
+    color: green;
+    font-size: 40pt;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+ 
+  .header__image {
+    width: 1500px;
+  }
+
+  .movie__list {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px; 
+    gap: 150px; // Espacio entre elementos
+    place-items: center;
+    list-style: none;
+    text-align: center;
+    margin-left: 100px;
+  }
+
+  .spotlight__form {
+    display: flex;
+    justify-content: center;
+    margin: 30px
+  }
+
+}
