@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import "./styles/App.scss";
-import MovieList from "./movies/MovieList";
-import MovieFilter from "./movies/MovieFilter";
+import MovieList from "./components/MovieList";
+import MovieFilter from "./components/MovieFilter";
+import MovieSceneDetail from "./components/MovieSceneDetail";
+import { Routes, Route } from "react-router";
+import LandingPage from "./assets/Pages/LandingPage";
+import DetailPage from "./assets/Pages/DetailPage";
 
 function App() {
   //variables de estado
@@ -35,28 +39,38 @@ function App() {
       (filterYear === "All" || movie.year === parseInt(filterYear))
   );
 
-  // Obtener los años únicos de las películas
-  const years = [...new Set(movies.map((movie) => movie.year))];
-
   return (
     <>
       <header className="spotlight__header">
-        <img className="header__image" src="src/assets/wow_meme.jpeg" alt="" />
-        <h1 className="spotlight__maintitle">The ultimate Owen Wilson's wow searcher!</h1>
+        <img
+          className="header__image"
+          src="src/assets/wow_meme.jpeg"
+          alt="imagen de Owen Wilson diciendo Wow"
+        />
+        <h1 className="spotlight__maintitle">Owen Wilson's "wow"</h1>
+        <h2 className=""></h2>
       </header>
       <div>
-      <MovieFilter 
-          filterName={filterName} 
-          handleInputFilterName={handleInputFilterName} 
-          filterYear={filterYear} 
+        <MovieFilter
+          filterName={filterName}
+          handleInputFilterName={handleInputFilterName}
+          filterYear={filterYear}
           handleFilterYear={handleFilterYear}
-          years={years}
-      /> 
+        />
       </div>
 
       <main>
-        <MovieList movies={filteredMovies}> </MovieList>
+        <Routes>
+          <Route index element={<LandingPage movies={filteredMovies} />} />
+          <Route
+            path="detail/:movie"
+            element={<DetailPage movies={filteredMovies} />}
+          />
+        </Routes>
       </main>
+      <footer className="spotlight__footer">
+        <p>Celia R Revert, 2025</p>
+      </footer>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+
 import PropTypes from "prop-types"; // Importamos PropTypes
 
 function MovieFilter({ filterName, handleInputFilterName, filterYear, handleFilterYear }) {

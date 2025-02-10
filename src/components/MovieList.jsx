@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'; 
-import MovieItem from './MovieItem';
+import MovieItem from './MovieItem'; 
 
 function MovieList({movies}) {
   return (
