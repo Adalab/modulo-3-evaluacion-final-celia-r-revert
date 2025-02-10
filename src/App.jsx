@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles/App.scss";
 import MovieList from "./movies/MovieList";
+import MovieFilter from "./movies/MovieFilter";
 
 function App() {
   //variables de estado
@@ -21,68 +22,36 @@ function App() {
     setFilterName(ev.target.value);
   };
 
-  const filteredMovies = movies.filter((movies) =>
-    (movies.movie ?? "")
-      .toLocaleLowerCase()
-      .includes(filterName.toLocaleLowerCase())
-  );
-
   const handleFilterYear = (ev) => {
     ev.preventDefault();
     setFilterYear(ev.target.value);
   };
 
+  const filteredMovies = movies.filter(
+    (movie) =>
+      (movie.movie ?? "")
+        .toLocaleLowerCase()
+        .includes(filterName.toLocaleLowerCase()) &&
+      (filterYear === "All" || movie.year === parseInt(filterYear))
+  );
 
+  // Obtener los años únicos de las películas
+  const years = [...new Set(movies.map((movie) => movie.year))];
 
   return (
     <>
       <header className="spotlight__header">
-        <h1 className="spotlight__maintitle">Owen Wilson's "wow"</h1>
+        <img className="header__image" src="src/assets/wow_meme.jpeg" alt="" />
+        <h1 className="spotlight__maintitle">The ultimate Owen Wilson's wow searcher!</h1>
       </header>
       <div>
-        <form className="spotlight__form" action="submit" method="POST">
-          <label className="spotlight__movie" htmlFor="movie">
-            Película
-          </label>
-          <input
-            className="spotlight__input"
-            autoComplete="off"
-            type="search"
-            name="search"
-            id="search"
-            placeholder="search your iconic movie"
-            onInput={handleInputFilterName}
-            required
-            value={filterName}
-          />
-          <label className="spotlight__year" htmlFor="year">
-            Año
-          </label>
-          <select
-            className="spotlight__select"
-            name="año"
-            id="año"
-            onChange={handleFilterYear}
-            value={filterYear}
-          >
-            <option value="All">All</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-            <option value="2011">2011</option>
-            <option value="2010">2010</option>
-          </select>
-        </form>
+      <MovieFilter 
+          filterName={filterName} 
+          handleInputFilterName={handleInputFilterName} 
+          filterYear={filterYear} 
+          handleFilterYear={handleFilterYear}
+          years={years}
+      /> 
       </div>
 
       <main>
