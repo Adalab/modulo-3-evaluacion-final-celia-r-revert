@@ -5,7 +5,8 @@ import MovieList from "./movies/MovieList";
 function App() {
   //variables de estado
   const [movies, setMovies] = useState([]);
-  const [filterName, setFilterName] = useState ('');
+  const [filterName, setFilterName] = useState("");
+  const [filterYear, setFilterYear] = useState("All");
 
   useEffect(() => {
     fetch("https://owen-wilson-wow-api.onrender.com/wows/random?results=50")
@@ -16,14 +17,22 @@ function App() {
   }, []);
 
   const handleInputFilterName = (ev) => {
-    ev.preventDefault(); 
-    setFilterName(ev.target.value); 
-  }
+    ev.preventDefault();
+    setFilterName(ev.target.value);
+  };
 
- const filteredMovies = movies.filter ( movies => (movies.movie ?? "").toLocaleLowerCase().includes
-(filterName.toLocaleLowerCase() ));
+  const filteredMovies = movies.filter((movies) =>
+    (movies.movie ?? "")
+      .toLocaleLowerCase()
+      .includes(filterName.toLocaleLowerCase())
+  );
 
-console.log (filteredMovies); 
+  const handleFilterYear = (ev) => {
+    ev.preventDefault();
+    setFilterYear(ev.target.value);
+  };
+
+
 
   return (
     <>
@@ -36,8 +45,8 @@ console.log (filteredMovies);
             Película
           </label>
           <input
-            className= "spotlight__input"
-            autoComplete= "off"
+            className="spotlight__input"
+            autoComplete="off"
             type="search"
             name="search"
             id="search"
@@ -45,12 +54,17 @@ console.log (filteredMovies);
             onInput={handleInputFilterName}
             required
             value={filterName}
-            
           />
           <label className="spotlight__year" htmlFor="year">
             Año
           </label>
-          <select className="spotlight__select" name="año" id="año">
+          <select
+            className="spotlight__select"
+            name="año"
+            id="año"
+            onChange={handleFilterYear}
+            value={filterYear}
+          >
             <option value="All">All</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
