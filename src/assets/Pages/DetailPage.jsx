@@ -6,7 +6,7 @@ function DetailPage({ movies }) {
     const selectedMovie = movies.find((m) => m.movie.toLowerCase() === movie.toLowerCase());
 
     if (!selectedMovie) {
-        return <p>Película no encontrada.</p>;
+        return <p>WOW! Película no encontrada.</p>;
     }
 
     return <MovieSceneDetail movie={selectedMovie} />;

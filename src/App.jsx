@@ -47,7 +47,7 @@ function App() {
           src="src/assets/wow_meme.jpeg"
           alt="imagen de Owen Wilson diciendo Wow"
         />
-        <h1 className="spotlight__maintitle">Owen Wilson's "wow"</h1>
+        <h1 className="spotlight__maintitle">Owen Wilson's "wow" searcher!</h1>
         <h2 className=""></h2>
       </header>
       <div>
@@ -59,7 +59,7 @@ function App() {
         />
       </div>
 
-      <main>
+      <main className="spotlight__main">
         <Routes>
           <Route index element={<LandingPage movies={filteredMovies} />} />
           <Route
