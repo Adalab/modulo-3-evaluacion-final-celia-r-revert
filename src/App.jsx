@@ -6,6 +6,7 @@ import MovieSceneDetail from "./components/MovieSceneDetail";
 import { Routes, Route } from "react-router";
 import LandingPage from "./assets/Pages/LandingPage";
 import DetailPage from "./assets/Pages/DetailPage";
+import wow_meme from "./assets/wow_meme.jpeg"
 
 function App() {
   //variables de estado
@@ -44,7 +45,7 @@ function App() {
       <header className="spotlight__header">
         <img
           className="header__image"
-          src="docs/assets/wow_meme.jpeg"
+          src={wow_meme}
           alt="imagen de Owen Wilson diciendo Wow"
         />
         <h1 className="spotlight__maintitle">Owen Wilson's "wow" searcher!</h1>
