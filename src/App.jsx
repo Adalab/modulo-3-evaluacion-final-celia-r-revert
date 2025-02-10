@@ -44,7 +44,7 @@ function App() {
       <header className="spotlight__header">
         <img
           className="header__image"
-          src="src/assets/wow_meme.jpeg"
+          src="docs/assets/wow_meme.jpeg"
           alt="imagen de Owen Wilson diciendo Wow"
         />
         <h1 className="spotlight__maintitle">Owen Wilson's "wow" searcher!</h1>
